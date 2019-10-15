@@ -1,273 +1,475 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Hey wrl">
+    
+    
+    
+    
+    
+    
+    <title>Hexo</title>
+    <link href="http://yoursite.com" rel="prefetch">
 
-</head>
-</html>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">个人博客</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-java面向对象知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/11/java面向对象知识点/" class="article-date">
-  <time datetime="2019-10-11T07:50:12.000Z" itemprop="datePublished">2019-10-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/11/java面向对象知识点/">java面向对象知识点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> <strong>第二章：类和对象的创建</strong></p>
-<p>概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。</p>
-<p>好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。</p>
-<p>如何使用：通常是创建类的对象再给属性赋值。</p>
-<p>构造方法：构造方法的名称和类名相同，没有返回值类型。</p>
-<p>GO g=new GO();</p>
-<p>构造方法的重载：方法名相同，参数列表不同，这是构造方法的重载。</p>
-<p>如果一个类中包含了两个或两个以上的方法，他们方法名相同，方法参数个数或者参数类型不同，则称该方法被重载了，这个过程是方法重载。</p>
-<p>Static：可以用来修饰属性，方法和代码块，静态方法中不能使用this和super关键字。</p>
-<p><strong>第三章：封装</strong></p>
-<p>概念：封装指的是将对象的状态信息隐藏在对象内部，不允许外部程序直接访问对象内部信息，而是通过该类所提供的方法来实现对内部信息的操作访问。</p>
-<p>好处：提高了安全性   提高了复用性  提高了实现细节</p>
-<p>注意事项：类的属性中均用private来修饰  定义geter和seter方法</p>
-<p><strong>第四章：继承</strong></p>
-<p>概念：比如FeiGe快递系统中有三个实体类Person（人），Courier（快递员）,Customer（客户）类，Courier,Customer都属于（派生类）Person，所以都继承（extends）自Person类。</p>
-<p>好处：提高了代码的重用性  提高了代码的扩展性</p>
-<p>语法：class 类名 extends父接口{</p>
-<p>   //属性定义</p>
-<p>   //方法定义}</p>
-<p>注意事项：1.子类继承父类所以的属性和方法，只不过只能调用非Private属性和方法2.java中的继承只支持单继承，意思是一个子类只能继承一个父类，但是允许多层继承       </p>
-<p>继承中的构造方法：调用父类中的构造方法，</p>
-<p>需用到关键字super super指代父类</p>
-<p>重写的概念：在继承的关系中。子类会自动继承父类中定义的方法，但有时子类中需要对继承的方法进行一些修改，即对父类的方法进行重写。</p>
-<p>语法：void 方法名（）{}</p>
-<p>注意事项：子类重写父类的方法时，不能使用比父类中被重写的方法更严格的访问权限，重写方法和被重写方法必须具有相同的方法名，相同的参数列表和相同的返回值类型，重写方法的访问修饰符必须大于被重写方法的访问修饰符，否则就不能被称为方法的重写。</p>
-<p>异常的处理：在程序执行代码的时候万一发生了异常，程序会按照预定的处理方法对异常进行处理，异常处理完毕之后，程序继续运行。</p>
-<p>语法：5个关键字 try catch finally throw throws</p>
-<p>常见的异常类型</p>
-<p>Exception 异常层次的根类 ArithmeticException  算术错误情形，如以零作除数</p>
-<p>ArrayIndexOutOfBoundsException  数组下标越界</p>
-<p>NullPointerException空指针异常</p>
-<p>ClassNotFoundException不能加载所需的类</p>
-<p>InputMismatchException得到的数据类型与实际输入的类型不匹配</p>
-<p>llegalArgumentException方法接收到非法参数</p>
-<p>ClassCastException对象强制类型转换出错</p>
-<p>NumberFormatException数字格式转换异常，如把“abc”转换成数字</p>
-<p><strong>第五章：多态</strong></p>
-<p>概念：指允许不同类的对象对同一消息做出响应即同同一消息可以根据发送对象的不同而采用多种不同的行为方式。</p>
-<p>好处：可替换性 可扩充性 接口性 灵活性 简化性</p>
-<p>多态的使用：</p>
-<p>子类向父类转换称为向上转型</p>
-<p>向上转型：&lt;父类型&gt;&lt;引用变量名&gt;=new&lt;子类型&gt;（）；</p>
-<p>将一个指向子类对象的父类引用赋给一个子类的引用，即将父类类型转换子类类型，称为向下转型，此时必须进行强制类型转换。</p>
-<p>向下转型：&lt;子类型&gt;&lt;引用变量名&gt;=（&lt;子类型&gt;）&lt;父类型的引用变量&gt;；</p>
-<p>运算符：instanceof  进行类型的判断</p>
-<p>Try-catch-finally 如果try中的所有语句正常执行完毕那么finally块就会被执行</p>
-<p> 多重catch 一段代码会出现多种异常这时可以在try语句后写多个catch语句块</p>
-<p><strong>第六章：抽象</strong></p>
-<p>概念：如果一个类没有足够的信息去描述一个具体的对象那我们就称之为抽象类</p>
-<p>语法：public abstract class类名{}</p>
-<p>作用：抽象类是用来继承的比普通类更通用</p>
-<p>抽象方法：abstract修饰没有方法体之声明返回的数据类型 方法名称和所需要的参数</p>
-<p>语法 ：public abstract 返回值类型 方法名（参数列表）；</p>
-<p>注意事项：包含抽象方法的类一定是抽象类  抽象类中不一定都是抽象方法  构造方法不能生命为抽象方法  abstract不能与private static final native 并列修饰同一个方法</p>
-<p>Final 修饰类 被final修饰过的类不能被继承 因为不能被继承所以此类中所有方法都是final修饰   该类如果不需要有子类不需要被扩展类的方法不允许被重写就用final修饰该类</p>
-<p>Throws通过try-catch捕获处理异常</p>
-<p><strong>第七章：接口</strong></p>
-<p>概述：在软件中接口是一种规范和标准他们可以约束类的行为是一些方法特征的集合但是没有方法的实现</p>
-<p>语法：</p>
-<p>【修饰符】interface接口名extends父接口1，父接口2……{//常量定义//方法定义}</p>
-<p>Class类名extends父类名implements接口1，接口2….{//类成员}</p>
-<p>Run（）；方法提供服务</p>
-<p>接口是一种能力接口是一种约定</p>
-<p>抛出异常：throw 除系统自动抛出异常可以用throw自动抛出异常</p>
-<p>Throw在程序中抛出异常throws在方法内抛出异常</p>
-<p><strong>第八章：集合框架</strong></p>
-<p>集合框架使用方便的接口和类都在java.util包中</p>
-<p>集合框架的特点：</p>
-<p>长度  数组长度是固定的集合长度是可变的</p>
-<p>存储对象 数组可以存储基本的数据类型，也可以存储对象的引用 集合只能用于存储对象的引用</p>
-<p>对象类型 数组必须是相同类型的数据  对象可以是不同类型</p>
-<p>  接口区别：</p>
-<p>Collection接口存储组 不唯一(允许重复)、 无序的对象。<br>Set接口继承Collection接口，存储-组唯一(不允许重复)、 无序的对象。<br>List接口继承Collection接口，存储组不唯-(允许重复)、 有序(以元素插入的次序来放置无素，不会重新排列)的对象<br>Map接口存储组成对的键 值对象，提供key(键)到value(值)的映射。Map中的key不要求有序，不允许重复。value 同样不要求有序，但允许重复。</p>
-<p>List接口：</p>
-<p>实现List接口的常用类有ArayList和Lnkedist.它们都可以容纳所有类型的对象，包括nll允许重复，并且都保证元素的存储顺序。<br>ArrayList和LinkedList的大致区别:<br>arraylist是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构对于随机访问get和set, ArrayList 优于LinkedList, 因为LinkedList要移动指针。<br>对于新增和删除操作add和remove, LinkedList 比较占优势，因为ArrayList要移动数据。</p>
-<p>list接口定义中的格各种常用方法</p>
-<p>boolean add(Object o)在列表末尾顺序添加元素，起始索引位置从0开始<br>int size()返回列表中的元素个数<br>void add(int index,Objecto)在指定的索 引位置添加元素，原索引位置及其后面的元素依次后移<br>注意:新添加元素的索引位置必须介于0和列表中元素个数之间</p>
-<p>0bject get(int index)返回指定索引位置处的元素<br>注意:取出的元素是Object类型，使用前需要进行强制类型转换<br>boolean contains(Object o)判断列表中是否存在指定元素<br>boolean remove(Object o)从列表中删除元素<br>Object remove(int index)从列表中删除指定位置元素，起始索引位置从0开始</p>
-<p>Linkedlist的一些特殊用法<br>void addFirst(Object o)在列表的首部添加元素<br>void addLast(Object o)在列表的末尾添加元素<br>Object getFirst( )返回列表中的第一” 个元素<br>Object getLast( )返回列表中的最后一个元素<br>Object removeFirst( )删除并返回列表中的第一个元素</p>
-<p>Set接口</p>
-<p>Hashset的优点就是各方面都很快但数据是无序的</p>
-<p>Threeset优点是有序而且可以按照升序方式进行排序，但是其他各方面不突出</p>
-<p>Map接口</p>
-<p>Object put （object key，object value）以“键一值对”的方式进行存储<br>如果武图添加重复的<br>键，那么最后加入的“键-值对”将替换掉原先的“键一道<br>对”<br>Object get (Object key)根据键返回相关联的值，若不存在指定的键，则返回null</p>
-<p>Object remove (Object key)删除指定的键映射的“键一值对”<br>int size()返回元素个数<br>Set keySet()返回键的集合<br>Collection values( )返回值的集合<br>boolean containsKey (Object key)若存在指定的键映射的“键值对”，则返回true<br>boolean isEmpty( )若不存在键一值映射关系，则返回true<br>void clear()从此映射中移除所有映射关系<br>泛型集合：list  ArrayList</p>
-<p>ArrayL ist&lt;0bject&gt; list=new ArrayL ist&lt;0bject&gt;() ;</p>
-<p>list. add (0);</p>
-<p>list. add(99.9);</p>
-<p>list. add(false);</p>
-<p>使用泛型集合在创建集合对象时指定集合中元素的类型，从集合中取出元素时无须进行类型强制转换，并且如果把非指定类型对象放入集合，会出现编译错误。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/java面向对象知识点/" data-id="ck1lu95ft0001r0vnlgozgqdd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
 </section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://yoursite.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Hexo</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="current">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="">
+                    <a href="/tags">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<div class="alert well fade in" id="gal-issue" role="alert">
+    <!-- TODO 添加关闭公告框功能 -->
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <!-- 这里自行配置公告内容 -->
+    这里是公告内容
+    <br>
+    配置相关说明请看<strong>_config.yml</strong>
+    <!-- 自行配置公告内容结束 -->
+</div>
+
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">11</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/10/11/java面向对象知识点/">
+                    <span>java面向对象知识点</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/10/11/java面向对象知识点/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/10/11/java面向对象知识点/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="java面向对象知识点">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/10/11/java面向对象知识点/">
+                        <span>java面向对象知识点</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-10-11
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/10/11/java面向对象知识点/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="java面向对象知识点">
+                </a>
+            </p>
+        </div>
         
-          <aside id="sidebar">
-  
-    <!-- Featured Tags -->
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/10/11/java面向对象知识点/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
 
-  
-    <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
 
+
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
         
-
         
+        
+        
+        <li class="current">
+            <span>1</span>
+        </li>
+        
+        
+        
+        
+    </ul>
+</div>
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
+<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
 
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            Hey wrl
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
             
-
-            
-
-            
-            
-            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/11/java面向对象知识点/">java面向对象知识点</a>
+                </span>
+            </li>
             
         </ul>
     </div>
-</section>
-
-  
-    
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/2019/10/11/java面向对象知识点/">java面向对象知识点</a>
-        </li>
-      
-    </ul>
-  </div>
-
-  
-    <!-- Friends Blog -->
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Hey wrl<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
     
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/11/java面向对象知识点/">java面向对象知识点</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+                
+                <li>
+                    <a href="/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 Hey wrl Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
 
-
-
-<script src="/js/script.js"></script>
-
-  </div>
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
 </body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
 </html>
