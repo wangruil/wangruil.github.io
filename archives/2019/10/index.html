@@ -1,20 +1,12 @@
-extends views/main.pug
+extends ./_layout.pug
 
-block head
-  title
-    = config.title
+include ./_mixins/post-timeline.pug
 
-block main
-  include mixins/post.pug
-  -var time
-  -site.posts.sort('date', 'desc').each(function(post) {
-    -var year = post.date.year()
-    -if (time != year) {
-      -if (time) {
-        h2.archive-title
-          = year
-      -}
-      -time = year
-    -}
-    +post(post, 'archive')
-  -})
+block content
+  div.archive
+    div.archive-total= site.posts.length === 0 ? __("page.posts-empty") : _p("page.posts-total", site.posts.length)
+
+    +postTimeline(theme.post_list.paginate.archives ? page.posts.data : site.posts.data)
+
+  if theme.post_list.paginate.archives
+    include ./_partials/widgets/pagination.pug

@@ -1,5 +1,7 @@
-extends views/index
+extends ./_layout.pug
 
-block head
-  title
-    = config.title
+block content
+  include ./_partials/post/post-list.pug
+
+  if theme.post_list.paginate.home
+    include ./_partials/widgets/pagination.pug

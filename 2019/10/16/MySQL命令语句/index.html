@@ -1,26 +1,38 @@
-extends views/main.pug
+extends ./_layout.pug
 
-block head
-  title
-    = page.title + ' - ' + config.title
+block content
+  div.post
+    - var fa_prefix = theme.fa_prefix || 'fa'
 
-block main
-  if page.type === 'tags'
-    include mixins/tags.pug
-    +tags('TAGS', site.tags.length)
-  else
-    include mixins/post.pug
-    +post(page, 'post')
+    include ./_mixins/post-header.pug
+    include ./_mixins/gallery.pug
 
-  //-
-  include plugins/reward.pug
+    +postHeader(page)
 
-  //- comment
-  if theme.comment_plugin == 'valine'
-    include plugins/valine.pug
-  else
-    include plugins/livere.pug
+    div.post-body
+      if page.photos && page.photos.length
+        +gallery(page)
+      != page.content
 
-  //- mathjax
-  if page.mathjax
-    include plugins/mathjax.pug
+    footer.post-footer
+      if theme.post_widget.end_text.enable
+        div.post-end
+          span= "------ "
+          span= __("post.end")
+          span= " ------"
+
+      if !(page.copyright === false) && (theme.creative_commons.enable && theme.creative_commons.post)
+        include ./_partials/widgets/copyright.pug
+
+      if theme.post_widget.tags
+        if page.tags && page.tags.length > 0
+          div.post-tags
+            each tag in page.tags.data
+              span.post-tags-item
+                i.post-tags-item__i(class=`${fa_prefix} fa-tags`)
+                a.post-tags-item__a(href=tag.permalink)= tag.name
+
+      if !(page.reward === false) && (theme.reward && theme.reward.enable)
+        include ./_partials/widgets/reward.pug
+
+      include ./_partials/widgets/pagination.pug
