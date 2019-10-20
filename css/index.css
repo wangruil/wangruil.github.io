@@ -1203,6 +1203,20 @@ td {
 .reward-qr-wechat-text {
   color: #3cb034;
 }
+.comments {
+  margin: 1.5rem 0 0;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+#gitalk-container {
+  width: 100%;
+}
+#gitalk-container .gt-meta {
+  margin-top: 0;
+  padding-top: 0;
+}
 .copy-button {
   position: absolute;
   top: 0;
