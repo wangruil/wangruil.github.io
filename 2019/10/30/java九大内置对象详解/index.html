@@ -1,0 +1,1605 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="java九大内置对象详解, Hexo">
+    <meta name="description" content="1、request对象
+
+request 对象是 javax.servlet.httpServletRequest类型的对象。 该对象代表了客户端的请求信息，主要用于接受通过HTTP协议传送到服务器的数据。（包括头信息、系统信息、请求方式以">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>java九大内置对象详解 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        java九大内置对象详解
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-10-30
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3>1、request对象
+
+<p>request 对象是 javax.servlet.httpServletRequest类型的对象。 该对象代表了客户端的请求信息，主要用于接受通过HTTP协议传送到服务器的数据。（包括头信息、系统信息、请求方式以及请求参数等）。request对象的作用域为一次请求。</p>
+<h3 id="2、response对象"><a href="#2、response对象" class="headerlink" title="2、response对象"></a><em>2、response对象</em></h3><p>response 代表的是对客户端的响应，主要是将JSP容器处理过的对象传回到客户端。response对象也具有作用域，它只在JSP页面内有效。</p>
+<h3 id="3、session对象"><a href="#3、session对象" class="headerlink" title="3、session对象"></a>3、session对象</h3><p>session 对象是由服务器自动创建的与用户请求相关的对象。服务器为每个用户都生成一个session对象，用于保存该用户的信息，跟踪用户的操作状态。session对象内部使用Map类来保存数据，因此保存数据的格式为 “Key/value”。 session对象的value可以使复杂的对象类型，而不仅仅局限于字符串类型。</p>
+<h3 id="4、application对象"><a href="#4、application对象" class="headerlink" title="4、application对象"></a>4、application对象</h3><p> application 对象可将信息保存在服务器中，直到服务器关闭，否则application对象中保存的信息会在整个应用中都有效。与session对象相比，application对象生命周期更长，类似于系统的“全局变量”。</p>
+<h3 id="5、out-对象"><a href="#5、out-对象" class="headerlink" title="5、out 对象"></a>5、out 对象</h3><p>out 对象用于在Web浏览器内输出信息，并且管理应用服务器上的输出缓冲区。在使用 out 对象输出数据时，可以对数据缓冲区进行操作，及时清除缓冲区中的残余数据，为其他的输出让出缓冲空间。待数据输出完毕后，要及时关闭输出流。</p>
+<h3 id="6、pageContext-对象"><a href="#6、pageContext-对象" class="headerlink" title="6、pageContext 对象"></a>6、pageContext 对象</h3><p>pageContext 对象的作用是取得任何范围的参数，通过它可以获取 JSP页面的out、request、reponse、session、application 等对象。pageContext对象的创建和初始化都是由容器来完成的，在JSP页面中可以直接使用 pageContext对象。</p>
+<h3 id="7、config-对象"><a href="#7、config-对象" class="headerlink" title="7、config 对象"></a>7、config 对象</h3><p>config 对象的主要作用是取得服务器的配置信息。通过 pageConext对象的 getServletConfig() 方法可以获取一个config对象。当一个Servlet 初始化时，容器把某些信息通过 config对象传递给这个 Servlet。 开发者可以在web.xml 文件中为应用程序环境中的Servlet程序和JSP页面提供初始化参数。</p>
+<h3 id="8、page-对象"><a href="#8、page-对象" class="headerlink" title="8、page 对象"></a>8、page 对象</h3><p>page 对象代表JSP本身，只有在JSP页面内才是合法的。 page隐含对象本质上包含当前 Servlet接口引用的变量，类似于Java编程中的 this 指针。</p>
+<h3 id="9、exception-对象"><a href="#9、exception-对象" class="headerlink" title="9、exception 对象"></a>9、exception 对象</h3><p>exception 对象的作用是显示异常信息，只有在包含 isErrorPage=”true” 的页面中才可以被使用，在一般的JSP页面中使用该对象将无法编译JSP文件。excepation对象和Java的所有对象一样，都具有系统提供的继承结构。exception 对象几乎定义了所有异常情况。在Java程序中，可以使用try/catch关键字来处理异常情况； 如果在JSP页面中出现没有捕获到的异常，就会生成 exception 对象，并把 exception 对象传送到在page指令中设定的错误页面中，然后在错误页面中处理相应的 exception 对象。</p>
+<p>JSP九大内置对象分为四类：</p>
+<ul>
+<li>输入输出对象：out对象、response对象、request对象</li>
+<li>通信控制对象：pageContext对象、session对象、application对象</li>
+<li>Servlet对象:page对象、config对象</li>
+<li>错误处理对象：exception对象</li>
+</ul>
+<p>九种对象简介：</p>
+<ol>
+<li><strong>out对象</strong>：用于向客户端、浏览器输出数据。</li>
+<li><strong>request对象</strong>：封装了来自客户端、浏览器的各种信息。</li>
+<li><strong>response对象</strong>：封装了服务器的响应信息。</li>
+<li><strong>exception对象</strong>：封装了jsp程序执行过程中发生的异常和错误信息。</li>
+<li><strong>config对象</strong>：封装了应用程序的配置信息。</li>
+<li><strong>page对象</strong>：指向了当前jsp程序本身。</li>
+<li><strong>session对象</strong>：用来保存会话信息。也就是说，可以实现在同一用户的不同请求之间共享数</li>
+<li><strong>application对象</strong>：代表了当前应用程序的上下文。可以在不同的用户之间共享信息。</li>
+<li><strong>pageContext对象</strong>：提供了对jsp页面所有对象以及命名空间的访问。</li>
+</ol>
+<h4 id="一-out对象"><a href="#一-out对象" class="headerlink" title="一.out对象"></a>一.out对象</h4><p>out对象是一个输出流，用来向浏览器输出信息，除了输出各种信息外还负责对缓冲区进行管理。</p>
+<p>out对象方法介绍：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>print或println</td>
+<td>输出数据</td>
+</tr>
+<tr>
+<td>newLine</td>
+<td>输出换行字符</td>
+</tr>
+<tr>
+<td>flush</td>
+<td>输出缓冲区数据</td>
+</tr>
+<tr>
+<td>close</td>
+<td>关闭输出流</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清除缓冲区中数据,但不输出到客户端</td>
+</tr>
+<tr>
+<td>clearBuffer</td>
+<td>清除缓冲区中数据,输出到客户端</td>
+</tr>
+<tr>
+<td>getBufferSize</td>
+<td>获得缓冲区大小</td>
+</tr>
+<tr>
+<td>getRemaining</td>
+<td>获得缓冲区中没有被占用的空间</td>
+</tr>
+<tr>
+<td>isAutoFlush</td>
+<td>是否为自动输出</td>
+</tr>
+</tbody></table>
+<h4 id="二-request对象"><a href="#二-request对象" class="headerlink" title="二.request对象"></a>二.request对象</h4><p>request对象封装了从客户端到服务器发出的请求信息。</p>
+<p>request对象方法介绍：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>isUserInRole</td>
+<td>判断认证后的用户是否属于某一成员组</td>
+</tr>
+<tr>
+<td>getAttribute</td>
+<td>获取指定属性的值,如该属性值不存在返回Null</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取所有属性名的集合</td>
+</tr>
+<tr>
+<td>getCookies</td>
+<td>获取所有Cookie对象</td>
+</tr>
+<tr>
+<td>getCharacterEncoding</td>
+<td>获取请求的字符编码方式</td>
+</tr>
+<tr>
+<td>getContentLength</td>
+<td>返回请求正文的长度,如不确定返回-1</td>
+</tr>
+<tr>
+<td>getHeader</td>
+<td>获取指定名字报头值</td>
+</tr>
+<tr>
+<td>getHeaders</td>
+<td>获取指定名字报头的所有值,一个枚举</td>
+</tr>
+<tr>
+<td>getHeaderNames</td>
+<td>获取所有报头的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getInputStream</td>
+<td>返回请求输入流,获取请求中的数据</td>
+</tr>
+<tr>
+<td>getMethod</td>
+<td>获取客户端向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>端传送数据的方法</td>
+</tr>
+<tr>
+<td>getParameter</td>
+<td>获取指定名字参数值</td>
+</tr>
+<tr>
+<td>getParameterNames</td>
+<td>获取所有参数的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getParameterValues</td>
+<td>获取指定名字参数的所有值</td>
+</tr>
+<tr>
+<td>getProtocol</td>
+<td>获取客户端向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>端传送数据的协议名称</td>
+</tr>
+<tr>
+<td>getQueryString</td>
+<td>获取以get方法向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>传送的查询字符串</td>
+</tr>
+<tr>
+<td>getRequestURI</td>
+<td>获取发出请求字符串的客户端地址</td>
+</tr>
+<tr>
+<td>getRemoteAddr</td>
+<td>获取客户端的IP地址</td>
+</tr>
+<tr>
+<td>getRemoteHost</td>
+<td>获取客户端的名字</td>
+</tr>
+<tr>
+<td>getSession</td>
+<td>获取和请求相关的会话</td>
+</tr>
+<tr>
+<td>getServerName</td>
+<td>获取<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>的名字</td>
+</tr>
+<tr>
+<td>getServerPath</td>
+<td>获取客户端请求文件的路径</td>
+</tr>
+<tr>
+<td>getServerPort</td>
+<td>获取<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>的端口号</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除请求中的一个属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设置指定名字参数值</td>
+</tr>
+</tbody></table>
+<p>request对象演示：</p>
+<p>完成一个简单的用户注册信息界面，将注册信息发送到欢迎界面上。</p>
+<p>用户注册界面表单设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;do_register.jsp&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    用户名：</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;&lt;br&gt;</span><br><span class="line">    技能：</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;java&quot;&gt;java</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;python&quot;&gt;python</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;ruby&quot;&gt;ruby</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;golang&quot;&gt;golang</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;reset&quot; value=&quot;重置&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用户注册信息处理界面使用getParameter方法将用户的表单信息提取出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name=request.getParameter(&quot;userName&quot;);</span><br><span class="line">String[] skillArr=request.getParameterValues(&quot;skills&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>将skillArr数组转换成字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String skills=&quot;&quot;;</span><br><span class="line">if (skillArr!=null&amp;&amp;skillArr.length&gt;0)&#123;</span><br><span class="line">    for (String skill:skillArr</span><br><span class="line">         ) &#123;</span><br><span class="line">        skills=skills+skill+&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将数据使用setAttribute保存起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(&quot;userName&quot;,name);</span><br><span class="line">request.setAttribute(&quot;skills&quot;,skills);</span><br></pre></td></tr></table></figure>
+
+<p>使用jsp的forword指令将页面跳转到welcome.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=&quot;welcome.jsp&quot;&gt;&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure>
+
+<p>setAttribute和getAttribute用于在web组件之间共享信息<br>getparameter方法用于接收服务器通过set和post方法传输的数据<br>注意没有setparameter方法</p>
+<p>welcome.jsp页面配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;技能展示界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">信息展示界面：&lt;br&gt;&lt;br&gt;</span><br><span class="line">&lt;%--&lt;%=%&gt;这是表达式&lt;%%&gt;这是jsp程序处理--%&gt;</span><br><span class="line">姓名：&lt;%=request.getAttribute(&quot;userName&quot;)%&gt;&lt;br&gt;</span><br><span class="line">技能：&lt;%=request.getAttribute(&quot;skills&quot;)%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.blog.csdn.net/20160409211851628?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20160409211902894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="三-response对象"><a href="#三-response对象" class="headerlink" title="三.response对象"></a>三.response对象</h4><p>response对象主要用于对客户端的请求进行回应。<br>以及处理http的连接信息，例如设置http文件头，设置cookie对象等。</p>
+<p>response对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>addCookie</td>
+<td>添加一个Cookie对象</td>
+</tr>
+<tr>
+<td>addHeader</td>
+<td>添加Http文件指定名字头信息</td>
+</tr>
+<tr>
+<td>containsHeader</td>
+<td>判断指定名字Http文件头信息是否存在</td>
+</tr>
+<tr>
+<td>encodeURL</td>
+<td>使用sessionid封装URL</td>
+</tr>
+<tr>
+<td>flushBuffer</td>
+<td>强制把当前缓冲区内容发送到客户端</td>
+</tr>
+<tr>
+<td>getBufferSize</td>
+<td>返回缓冲区大小</td>
+</tr>
+<tr>
+<td>getOutputStream</td>
+<td>返回到客户端的输出流对象</td>
+</tr>
+<tr>
+<td>sendError</td>
+<td>向客户端发送错误信息</td>
+</tr>
+<tr>
+<td>sendRedirect</td>
+<td>把响应发送到另一个位置进行处理</td>
+</tr>
+<tr>
+<td>setContentType</td>
+<td>设置响应的MIME类型</td>
+</tr>
+<tr>
+<td>setHeader</td>
+<td>设置指定名字的Http文件头信息</td>
+</tr>
+</tbody></table>
+<h4 id="四-session对象"><a href="#四-session对象" class="headerlink" title="四.session对象"></a>四.session对象</h4><p>session对象：是一个jsp内置对象，它在第一个jsp被装载时自动创建，完成会话期管理。从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离 开这个服务器结束(或者超时)，被称为一个会话。当一个客户访问一个服务器时，可能会在这个服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要创建session对象。</p>
+<p>http是无状态的连接协议，需要使用session来存放用户每次的登陆信息</p>
+<p>session对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getAttribute</td>
+<td>获取指定名字的属性</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取session中全部属性名字,一个枚举</td>
+</tr>
+<tr>
+<td>getCreationTime</td>
+<td>返回session的创建时间</td>
+</tr>
+<tr>
+<td>getId</td>
+<td>获取会话标识符</td>
+</tr>
+<tr>
+<td>getLastAccessedTime</td>
+<td>返回最后发送请求的时间</td>
+</tr>
+<tr>
+<td>getMaxInactiveInterval</td>
+<td>返回session对象的生存时间单位千分之一秒</td>
+</tr>
+<tr>
+<td>invalidate</td>
+<td>销毁session对象</td>
+</tr>
+<tr>
+<td>isNew</td>
+<td>每个请求是否会产生新的session对象</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除指定名字的属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设定指定名字的属性值</td>
+</tr>
+</tbody></table>
+<p>接下来通过一个登陆的小例子来演示下session对象的应用：</p>
+<p>登陆表单设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;do_login.jsp&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    userName:&lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    password:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>登陆逻辑处理界面，使用getParameter获取到用户名和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String userName=request.getParameter(&quot;userName&quot;);</span><br><span class="line">String password=request.getParameter(&quot;password&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>对用户名和密码进行判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (userName!=null&amp;&amp;password!=null)&#123;</span><br><span class="line">    session.setAttribute(&quot;userName&quot;,userName);</span><br><span class="line">    response.setHeader(&quot;refresh&quot;,&quot;2;URL=welcome.jsp&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在欢迎界面使用getAttribute获取当前的用户名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%if(session.getAttribute(&quot;userName&quot;)!=null)&#123;%&gt;</span><br><span class="line">&lt;%--getAttribute方法是使用指定的key获取session中的value值。获取到的是一个object对象</span><br><span class="line">在使用的时候需要根据具体的类型进行类型转换。</span><br><span class="line">这里取出的是一个字符串，直接调用会使用他的toString方法，因此不用进行转换--%&gt;</span><br><span class="line">欢迎 &lt;%=session.getAttribute(&quot;userName&quot;)%&gt;</span><br><span class="line">&lt;a href=&quot;logout.jsp&quot;&gt;注销&lt;/a&gt;</span><br><span class="line">&lt;%&#125;else&#123;%&gt;</span><br><span class="line">请先登陆</span><br><span class="line">&lt;a href=&quot;login.jsp&quot;&gt;登陆&lt;/a&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>判断session对象是否是新创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%if (session.isNew())&#123;%&gt;</span><br><span class="line"></span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">欢迎新用户</span><br><span class="line">&lt;%&#125;else&#123;%&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">欢迎老用户</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在登出界面里清除session对象信息，并跳转到欢迎界面中去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.invalidate();//清除掉session对象</span><br><span class="line">response.setHeader(&quot;refresh&quot;,&quot;2;URL=welcome.jsp&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.csdn.net/icarus_wang/article/details/51107771" alt="阅读更多…"></p>
+<p><img src="http://img.blog.csdn.net/20160409214922437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20160409214934765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="五-application对象"><a href="#五-application对象" class="headerlink" title="五.application对象"></a>五.application对象</h4><p>application对象代表当前的应用程序。存在于服务器的内存空间中。<br>应用一旦启动便会自动生成一个application对象。如果应用没有被关闭，<br>此application对象便一直会存在。直到应用被关闭<br>application的生命周期比session更长。<br>应用：<br>为多个用户共享全局信息。比如当前的在线人数等。</p>
+<p>application对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getAttribute</td>
+<td>获取应用对象中指定名字的属性值</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取应用对象中所有属性的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getInitParameter</td>
+<td>返回应用对象中指定名字的初始参数值</td>
+</tr>
+<tr>
+<td>getServletInfo</td>
+<td>返回Servlet编译器中当前版本信息</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设置应用对象中指定名字的属性值</td>
+</tr>
+</tbody></table>
+<p>可以使用application对象来实现页面访问次数记录的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    Object obj=application.getAttribute(&quot;counter&quot;);</span><br><span class="line">    if (obj==null)&#123;</span><br><span class="line">        application.setAttribute(&quot;counter&quot;,new Integer(1));</span><br><span class="line">        out.println(&quot;该页面被访问了1次&lt;br/&gt;&quot;);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        int countValue=new Integer(obj.toString());</span><br><span class="line">        countValue++;</span><br><span class="line">        out.println(&quot;该页面被访问了&quot;+countValue+&quot;次&lt;br/&gt;&quot;);</span><br><span class="line">        application.setAttribute(&quot;counter&quot;,countValue);//java会自动装箱</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="六-config对象"><a href="#六-config对象" class="headerlink" title="六.config对象"></a>六.config对象</h4><p>config对象表示当前jsp程序的配置信息<br>一般项目中，jsp被用作模版技术，也就是位于表示层<br>而位于表示层的jsp文件一般是不需要配置信息的<br>所以此对象在jsp程序中其实很少使用<br>config对象是servletConfig类的一个实例。</p>
+<p>config对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getServletContext</td>
+<td>返回所执行的Servlet的环境对象</td>
+</tr>
+<tr>
+<td>getServletName</td>
+<td>返回所执行的Servlet的名字</td>
+</tr>
+<tr>
+<td>getInitParameter</td>
+<td>返回指定名字的初始参数值</td>
+</tr>
+<tr>
+<td>getInitParameterNames</td>
+<td>返回该JSP中所有的初始参数名,一个枚举</td>
+</tr>
+</tbody></table>
+<h4 id="七-page对象"><a href="#七-page对象" class="headerlink" title="七.page对象"></a>七.page对象</h4><p>page对象有点类似与java编程中的this指针，他指向了当前jsp页面本身。<br>page对象是java.lang.object类的一个实例</p>
+<p>page对象拥有一个toString方法，下面是官方定义的方法介绍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public String toString() &#123;</span><br><span class="line">    return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br><span class="line">包名+类名+@+hashcode值</span><br></pre></td></tr></table></figure>
+
+
+
+<p>page对象的方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString</td>
+<td>将当前项目的信息打印出来</td>
+</tr>
+<tr>
+<td>getClass</td>
+<td>返回当前的object类</td>
+</tr>
+<tr>
+<td>hashCode</td>
+<td>返回page对象的hashCode值</td>
+</tr>
+<tr>
+<td>equals</td>
+<td>用于比较对象是否与当前对象相同</td>
+</tr>
+</tbody></table>
+<h4 id="八-exception对象"><a href="#八-exception对象" class="headerlink" title="八.exception对象"></a>八.exception对象</h4><p>exception对象表示jsp引擎在执行代码时抛出的异常<br>如果想要使用exception对象，那么需要配置编译指令的isErrorPage属性为true</p>
+<p>即在页面指令中设置:&lt;%@page isErrorPage=“true”%&gt;</p>
+<h4 id="九：pageContext对象"><a href="#九：pageContext对象" class="headerlink" title="九：pageContext对象"></a>九：pageContext对象</h4><p>pageContetx对象是jsp页面中所有对象功能的最大集成着。<br>使用他可以访问所有的jsp内置对象。</p>
+<p>pageContext对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forward</td>
+<td>重定向到另一页面或Servlet组件</td>
+</tr>
+<tr>
+<td>getAttribute</td>
+<td>获取某范围中指定名字的属性值</td>
+</tr>
+<tr>
+<td>findAttribute</td>
+<td>按范围搜索指定名字的属性</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除某范围中指定名字的属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设定某范围中指定名字的属性值</td>
+</tr>
+<tr>
+<td>getException</td>
+<td>返回当前异常对象</td>
+</tr>
+<tr>
+<td>getRequest</td>
+<td>返回当前请求对象</td>
+</tr>
+<tr>
+<td>getResponse</td>
+<td>返回当前响应对象</td>
+</tr>
+<tr>
+<td>getServletConfig</td>
+<td>返回当前页面的ServletConfig对象</td>
+</tr>
+<tr>
+<td>getServletContext</td>
+<td>返回所有页面共享的ServletContext对象</td>
+</tr>
+<tr>
+<td>getSession</td>
+<td>返回当前页面的会话对象</td>
+</tr>
+</tbody></table>
+</h3>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">Hey Wrl</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/10/30/java九大内置对象详解/">http://yoursite.com/2019/10/30/java九大内置对象详解/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="http://yoursite.com" target="_blank">Hey Wrl</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">不用赏不用赏，如果实在想给了也行，哈哈哈哈</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipaya.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechata.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-10-30T08-46-49',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/10/30/java九大内置对象详解/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java九大内置对象详解">
+                        
+                        <span class="card-title">java九大内置对象详解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、request对象
+
+request 对象是 javax.servlet.httpServletRequest类型的对象。 该对象代表了客户端的请求信息，主要用于接受通过HTTP协议传送到服务器的数据。（包括头信息、系统信息、请求方式以
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hey Wrl
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/23/Github个人技术博客搭建步骤/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Github个人技术博客搭建步骤">
+                        
+                        <span class="card-title">Github个人技术博客搭建步骤</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、前期准备
+1、GitHub账号
+注册地址：https://github.com/
+2、Node.js环境
+下载地址：https://nodejs.org/download/
+3、Git 软件：下载地址http://git-scm.com
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hey Wrl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">Hey Wrl</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: ""
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
